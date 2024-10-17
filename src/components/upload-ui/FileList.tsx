@@ -28,7 +28,7 @@ export default function FileList({
             justifyContent: "space-between",
             alignItems: "center",
             flexWrap: "wrap",
-            border: file.size > maxImageSize && "1px solid red",
+            border: file.size > maxImageSize ? "1px solid red" : "none",
           }}
           component={ListItem}
         >
