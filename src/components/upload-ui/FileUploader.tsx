@@ -10,6 +10,7 @@ import FileList from "./FileList";
 import { Box, Button, Typography } from "@mui/material";
 import theme from "@/theme";
 import { uploadFile } from "@/lib/actions";
+import { maxImageSize } from "@/lib/constants";
 
 const FileUploader = () => {
   const [status, setStatus] = useState<"select" | "uploading" | "uploaded">(
@@ -19,8 +20,6 @@ const FileUploader = () => {
   const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
   const [curUploadingFile, setCurUploadingFile] = useState("");
   const [progress, setProgress] = useState(0);
-
-  const maxImageSize = 5242880; // 2MB - 2097152 bytes,  5MB - 5242880 bytes
 
   const reset = function () {
     setStatus("select");

@@ -6,7 +6,8 @@ import { CircularProgress, Paper, Stack, Typography } from "@mui/material";
 import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 
-import { truncateText } from "@/lib/utils";
+import { convertBytesToMB, truncateText } from "@/lib/utils";
+import { maxImageSize } from "@/lib/constants";
 
 export default function FileList({
   files,
@@ -27,22 +28,42 @@ export default function FileList({
             justifyContent: "space-between",
             alignItems: "center",
             flexWrap: "wrap",
+            border: file.size > maxImageSize && "1px solid red",
           }}
           component={ListItem}
         >
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <ImageOutlinedIcon sx={{ mr: "8px" }} />
-            <ListItemText primary={truncateText(file.name, 20)} />
+            <ListItemText
+              primary={truncateText(file.name, 20)}
+              sx={{
+                textDecoration:
+                  file.size > maxImageSize ? "line-through" : "none",
+                color: file.size > maxImageSize ? "red" : "black",
+              }}
+            />
           </Box>
-          {file.name === curUploadingFile && (
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Typography component="span" color="success" sx={{ mr: 1 }}>
-                Uploading
-              </Typography>
-              <CircularProgress size="18px" color="success" thickness={3.6} />
-            </Box>
-          )}
-          {uploadedFiles.includes(file.name) && <DoneAllIcon color="success" />}
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Typography
+              component="span"
+              color={file.size <= maxImageSize ? "success" : "error"}
+              sx={{ mr: 1 }}
+            >
+              {convertBytesToMB(file.size)} MB{" "}
+              {file.size > maxImageSize && "(Above limit)"}
+            </Typography>
+            {file.name === curUploadingFile && (
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <Typography component="span" color="success" sx={{ mr: 1 }}>
+                  Uploading
+                </Typography>
+                <CircularProgress size="18px" color="success" thickness={3.6} />
+              </Box>
+            )}
+            {uploadedFiles.includes(file.name) && (
+              <DoneAllIcon color="success" />
+            )}
+          </Box>
         </Paper>
       ))}
     </Stack>
