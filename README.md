@@ -1,9 +1,14 @@
+## About
+
+Image carousel with upload functionality. Developed with Next.js and Supabase (for storing and retrieving images)
+
 ## Upcoming features
 
-- Responsive design
+- Pause and resume functionality for uploads
+- A configurable stylesheet to override the MUI theme for dark mode support
 - Show skeleton while the images are being loaded
 - Uploading progress indicator for individual images
-- Delete images because supabase free plan offers limited storage (500 MB)
+- Delete images as supabase free plan offers limited storage (500 MB)
 
 ## Explanations
 
