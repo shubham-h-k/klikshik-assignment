@@ -5,6 +5,8 @@
 - Uploading progress indicator for individual images
 - Delete images because supabase free plan offers limited storage (500 MB)
 
-## Explanation
+## Explanations
 
-Data could have been fetched directly in the Page(server) component, and images could have been uploaded using server actions, but the assignment specifically asked for hitting the api endpoint /images and /upload, so route handlers are created in the directory src/app/api
+Initially i did hit the api endpoints /images and /upload created using route handlers. It was workig fine locally, but during deployment there were errors because server dont have access to baseUrl. So, finally i used server actions.
+Also revalidating cache was not working properly with fetch.
+I put the route handlers code in the branch "with-api-routes", if you want to checkout.

@@ -48,6 +48,7 @@ function CarouselIndicators({
               fill
               sizes="12vw"
               style={{ objectFit: "contain", objectPosition: "center" }}
+              priority={true}
             />
           </Button>
         </Box>

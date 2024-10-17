@@ -1,12 +1,11 @@
 import CarouselContainer from "@/components/carousel/CarouselContainer";
+import { getData } from "@/lib/actions";
+
+export const revalidate = 0;
 
 export default async function Home() {
   const maxResults = 10;
-  const response = await fetch(
-    `http://localhost:3000/api/images?limit=${maxResults}`
-  );
-
-  const { data }: { data: string[] } = await response.json();
+  const data: string[] = await getData(maxResults);
 
   return <CarouselContainer data={data} />;
 }

@@ -9,6 +9,7 @@ import LinearProgressWithLabel from "@/components/upload-ui/LinearProgressWithLa
 import FileList from "./FileList";
 import { Box, Button, Typography } from "@mui/material";
 import theme from "@/theme";
+import { uploadFile } from "@/lib/actions";
 
 const FileUploader = () => {
   const [status, setStatus] = useState<"select" | "uploading" | "uploaded">(
@@ -47,15 +48,12 @@ const FileUploader = () => {
         ) {
           try {
             setCurUploadingFile(filesArr[i].name);
-            const response = await fetch(`http://localhost:3000/api/upload`, {
-              method: "POST",
-              body: formData,
-            });
-            if (response.ok) {
-              setCurUploadingFile("");
-              setProgress((p) => p + 1);
-              setUploadedFiles((files) => [...files, filesArr[i].name]);
-            }
+
+            await uploadFile(formData);
+
+            setCurUploadingFile("");
+            setProgress((p) => p + 1);
+            setUploadedFiles((files) => [...files, filesArr[i].name]);
           } catch {
             setCurUploadingFile("");
           }
