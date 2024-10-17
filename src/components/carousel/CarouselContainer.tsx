@@ -64,7 +64,8 @@ function CarouselContainer({ data }: { data: string[] }) {
           },
         }}
       >
-        * Images are uploaded to and retrieved from Supabase
+        * Upload images and view them instantly in the carousel
+        <br />* Images are uploaded to and retrieved from Supabase
         <br />* Hover over OR click thumbnails to switch between images
         <br />* You can also use keyboard keys to switch between images
       </Typography>
