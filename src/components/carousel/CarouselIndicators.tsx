@@ -35,8 +35,8 @@ function CarouselIndicators({
             sx={{
               position: "relative",
               display: "block",
-              width: "3.5rem",
-              height: "3.5rem",
+              width: "4rem",
+              height: "4rem",
               overflow: "hidden",
               border: 2,
               borderColor: activeSlide === i ? "#3D3BDD" : "#eaeaea",
