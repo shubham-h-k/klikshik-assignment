@@ -2,6 +2,7 @@ import React from "react";
 
 import { Box, Button } from "@mui/material";
 import Image from "next/image";
+import theme from "@/theme";
 
 interface PropsCarouselIndicators {
   data: string[];
@@ -34,12 +35,16 @@ function CarouselIndicators({
             sx={{
               position: "relative",
               display: "block",
-              width: "4.375rem",
-              height: "4.375rem",
+              width: "3.5rem",
+              height: "3.5rem",
               overflow: "hidden",
               border: 2,
               borderColor: activeSlide === i ? "#3D3BDD" : "#eaeaea",
               borderRadius: "10px",
+              [theme.breakpoints.up("sm")]: {
+                width: "4.375rem",
+                height: "4.375rem",
+              },
             }}
           >
             <Image

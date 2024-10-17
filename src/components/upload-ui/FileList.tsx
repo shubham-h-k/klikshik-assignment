@@ -26,6 +26,7 @@ export default function FileList({
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
+            flexWrap: "wrap",
           }}
           component={ListItem}
         >

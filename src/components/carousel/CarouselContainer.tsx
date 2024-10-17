@@ -7,6 +7,7 @@ import Carousel from "@/components/carousel/Carousel";
 import Slides from "@/components/carousel/Slides";
 import CarouselControl from "@/components/carousel/CarouselControl";
 import CarouselIndicators from "@/components/carousel/CarouselIndicators";
+import theme from "@/theme";
 
 function CarouselContainer({ data }: { data: string[] }) {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -41,8 +42,28 @@ function CarouselContainer({ data }: { data: string[] }) {
   );
 
   return (
-    <Box sx={{ width: "28rem", height: "28rem", mx: "auto" }}>
-      <Typography variant="body1" component="p" sx={{ mb: "12px" }}>
+    <Box
+      sx={{
+        width: "20rem",
+        height: "20rem",
+        mx: "auto",
+        [theme.breakpoints.up("sm")]: {
+          width: "28rem",
+          height: "28rem",
+        },
+      }}
+    >
+      <Typography
+        variant="body1"
+        component="p"
+        sx={{
+          mb: "12px",
+          fontSize: "12px",
+          [theme.breakpoints.up("sm")]: {
+            fontSize: "16px",
+          },
+        }}
+      >
         * Images are uploaded to and retrieved from Supabase
         <br />* Hover over OR click thumbnails to switch between images
         <br />* You can also use keyboard keys to switch between images
