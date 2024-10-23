@@ -1,7 +1,7 @@
 import React from "react";
-
-import { Box, Button } from "@mui/material";
 import Image from "next/image";
+import { Box, Button } from "@mui/material";
+
 import theme from "@/theme";
 
 interface PropsCarouselIndicators {

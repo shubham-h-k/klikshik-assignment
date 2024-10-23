@@ -1,6 +1,6 @@
-import FileUploader from "@/components/upload-ui/FileUploader";
 import { Container } from "@mui/material";
-import React from "react";
+
+import FileUploader from "@/components/upload-ui/FileUploader";
 
 function Page() {
   return (

@@ -3,11 +3,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
 
+import theme from "@/theme";
 import Carousel from "@/components/carousel/Carousel";
 import Slides from "@/components/carousel/Slides";
 import CarouselControl from "@/components/carousel/CarouselControl";
 import CarouselIndicators from "@/components/carousel/CarouselIndicators";
-import theme from "@/theme";
 
 function CarouselContainer({ data }: { data: string[] }) {
   const [activeSlide, setActiveSlide] = useState(0);

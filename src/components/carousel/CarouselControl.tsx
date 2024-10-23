@@ -1,8 +1,8 @@
 import React from "react";
-
 import { IconButton, styled } from "@mui/material";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+
 import theme from "@/theme";
 
 const CustomButton = styled(IconButton)({

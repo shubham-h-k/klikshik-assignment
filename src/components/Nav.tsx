@@ -1,8 +1,8 @@
 "use client";
 
-import { Box, Button, ButtonGroup } from "@mui/material";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
+import { Box, Button, ButtonGroup } from "@mui/material";
 
 function Nav() {
   const pathname = usePathname();

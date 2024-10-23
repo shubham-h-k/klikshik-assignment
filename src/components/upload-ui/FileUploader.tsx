@@ -1,14 +1,15 @@
 "use client";
 
-import LoadingButton from "@mui/lab/LoadingButton";
 import React, { useState } from "react";
-import InputFileUpload from "./InputFileUpload";
+import LoadingButton from "@mui/lab/LoadingButton";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import LinearProgressWithLabel from "@/components/upload-ui/LinearProgressWithLabel";
-
-import FileList from "./FileList";
 import { Box, Button, Typography } from "@mui/material";
+
 import theme from "@/theme";
+import InputFileUpload from "@/components/upload-ui/InputFileUpload";
+import LinearProgressWithLabel from "@/components/upload-ui/LinearProgressWithLabel";
+import FileList from "@/components/upload-ui/FileList";
+
 import { uploadFile } from "@/lib/actions";
 import { maxImageSize } from "@/lib/constants";
 
