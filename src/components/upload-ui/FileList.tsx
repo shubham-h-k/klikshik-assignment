@@ -34,23 +34,33 @@ export default function FileList({
         >
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <ImageOutlinedIcon sx={{ mr: "8px" }} />
-            <ListItemText
-              primary={truncateText(file.name, 20)}
-              sx={{
-                textDecoration:
-                  file.size > maxImageSize ? "line-through" : "none",
-                color: file.size > maxImageSize ? "red" : "black",
-              }}
-            />
+            {file.size > maxImageSize || !file.type.startsWith("image/") ? (
+              <ListItemText
+                primary={truncateText(file.name, 20)}
+                sx={{
+                  textDecoration: "line-through",
+                  color: "red",
+                }}
+              />
+            ) : (
+              <ListItemText primary={truncateText(file.name, 20)} />
+            )}
           </Box>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Typography
               component="span"
-              color={file.size <= maxImageSize ? "success" : "error"}
+              color={
+                file.size <= maxImageSize && file.type.startsWith("image/")
+                  ? "success"
+                  : "error"
+              }
               sx={{ mr: 1 }}
             >
-              {convertBytesToMB(file.size)} MB{" "}
-              {file.size > maxImageSize && "(Above limit)"}
+              {!file.type.startsWith("image/")
+                ? "NOT AN IMAGE"
+                : file.size > maxImageSize
+                ? `${convertBytesToMB(file.size)} MB (Above limit)`
+                : `${convertBytesToMB(file.size)} MB`}
             </Typography>
             {file.name === curUploadingFile && (
               <Box sx={{ display: "flex", alignItems: "center" }}>
